@@ -1,0 +1,16 @@
+﻿
+    <ul>
+        <li>
+            <a asp-controller="Account" asp-action="Signin">Sign In</a>
+        </li>
+        <li>
+            <a asp-controller="Account" asp-action="Signout">Sign Out</a>
+        </li>
+        <li>
+            <a asp-action="MinimumAge10">MinimumAge10</a>
+        </li>
+        <li>
+            <a asp-action="MinimumAge50">MinimumAge50</a>
+        </li>
+    </ul>
+<h3>@(User==null?"": string.Join(',', User.Claims))</h3>

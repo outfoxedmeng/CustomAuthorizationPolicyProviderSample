@@ -1,0 +1,16 @@
+﻿<h2>Access Denied: @User?.Identity.Name is not authorized to view this page.</h2>
+
+@{
+    var dateOfBirth = User?.Claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.DateOfBirth)?.Value;
+}
+
+<h3> Date of birth:@(dateOfBirth?? "<Undefined>")</h3>
+
+<ul>
+    <li>
+        <a asp-controller="Home" asp-action="Index">Index</a>
+    </li>
+    <li>
+        <a asp-controller="Account" asp-action="Signout">Sign Out</a>
+    </li>
+</ul>

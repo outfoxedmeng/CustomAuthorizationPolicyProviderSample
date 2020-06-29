@@ -1,0 +1,20 @@
+﻿@model int
+
+@{
+    var birthOfDate = User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.DateOfBirth).Value;
+}
+
+<h1>Hi, @User.Identity.Name</h1>
+
+<h2>This page is for users @Model or older</h2>
+
+<p>
+    You can access this page since you were born on @birthOfDate
+</p>
+
+<ul>
+    <li><a asp-controller="Home" asp-action="Index">Index</a></li>
+    <li><a asp-controller="Account" asp-action="Signout">Sign Out</a></li>
+</ul>
+
+
