@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomPolicyProviderSample", "PolicyProviderSample\CustomPolicyProviderSample.csproj", "{471F3E98-DB5E-463A-9EFE-D7C03F89FDDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyBased", "PolicyBased\PolicyBased.csproj", "{5E81F863-3E8E-4DA1-AA30-747342640AA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{471F3E98-DB5E-463A-9EFE-D7C03F89FDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{471F3E98-DB5E-463A-9EFE-D7C03F89FDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{471F3E98-DB5E-463A-9EFE-D7C03F89FDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E81F863-3E8E-4DA1-AA30-747342640AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E81F863-3E8E-4DA1-AA30-747342640AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E81F863-3E8E-4DA1-AA30-747342640AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E81F863-3E8E-4DA1-AA30-747342640AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
