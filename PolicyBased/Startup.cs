@@ -16,8 +16,9 @@ namespace PolicyBased
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
+            services.AddHttpContextAccessor();
             services.AddAuthorization(options =>
             {
                 var userPermissions = new List<UserPermission> {

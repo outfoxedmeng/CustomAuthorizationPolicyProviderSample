@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,12 @@ namespace PolicyBased
     public class PermissionHandler : AuthorizationHandler<PermissionRequirement>
     {
         public List<UserPermission> UserPermissions { get; set; }
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
+        public PermissionHandler(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
         protected override Task HandleRequirementAsync(
             AuthorizationHandlerContext context,
             PermissionRequirement requirement)
@@ -22,9 +28,12 @@ namespace PolicyBased
 
             var t = context.Resource.GetType();
 
-            var r = context.Resource;
+            if (context.Resource is Endpoint endpoint)
+            {
+                var actionDescriptor = endpoint.Metadata.GetMetadata<ControllerActionDescriptor>();
+            }
             //获取httpcontext
-            var httpContext = (context.Resource as HttpContext);
+            var httpContext = _httpContextAccessor.HttpContext;
 
             //获取请求url
             var requestUrl = httpContext.Request.Path.Value.ToLower();

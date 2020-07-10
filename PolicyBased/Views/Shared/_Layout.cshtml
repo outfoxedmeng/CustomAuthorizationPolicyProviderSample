@@ -7,7 +7,15 @@
 </head>
 <body>
     <div>
-        <a href="/home/logout">Logout</a>
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <a href="/home/logout">Logout</a>
+
+        }
+        else
+        {
+            <a href="/home/login">Login</a>
+        }
         @RenderBody()
     </div>
 </body>
