@@ -17,6 +17,19 @@ namespace PolicyBased
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    // options.Conventions.AuthorizeFolder("/Areas/Auth", "Permission"); can't work
+
+                    // options.Conventions.AuthorizeAreaFolder("Auth", "/Pages", "Permission");//doesn't work
+                    // options.Conventions.AuthorizeAreaPage("Auth", "/Index", "Permission");//work
+                    // options.Conventions.AuthorizeFolder("/Auth", "Permission");//don't work
+
+                    //options.Conventions.AuthorizeAreaFolder("Auth", "/Auth", "Permission");//don't work
+
+                    options.Conventions.AuthorizeAreaFolder("Auth", "/", "Permission");//Work!!!
+                });
 
             services.AddHttpContextAccessor();
             services.AddAuthorization(options =>
@@ -75,6 +88,7 @@ namespace PolicyBased
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+                endpoints.MapRazorPages();
             });
         }
     }

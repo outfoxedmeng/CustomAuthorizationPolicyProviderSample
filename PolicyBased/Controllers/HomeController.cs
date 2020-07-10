@@ -10,9 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PolicyBased.Controllers
 {
+    [Authorize(Policy = "Permission")]
+
     public class HomeController : Controller
     {
-        [Authorize(Policy = "Permission")]
         public IActionResult Index()
         {
             return View();
@@ -26,7 +27,7 @@ namespace PolicyBased.Controllers
         {
             return View();
         }
-
+        [AllowAnonymous]
         public IActionResult Denied()
         {
             return View();
